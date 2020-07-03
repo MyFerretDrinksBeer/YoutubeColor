@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="jQ.js"></script>
+	<script src="Color-Picker-Plugin-jQuery-MiniColors/jquery.minicolors.js"></script>
+	<link rel="stylesheet" href="Color-Picker-Plugin-jQuery-MiniColors/jquery.minicolors.css">
+
+	<title>Aye</title>
+	<style type="text/css">
+		@font-face{
+		  font-family: "Raleway-Thin";
+		  src: url("Raleway-Thin.ttf") format("truetype");
+		}
+		body{
+			width: 300px;
+			padding-right: 3px;
+			font-family: Raleway-Thin;
+			background-color: #f0f0f0;
+		}
+		#header{
+			text-align: center;
+		}
+		.container{
+			position: relative;
+			width: 100%;
+			padding: 10px;
+			border-bottom: 1px solid #a6a6a6;
+			opacity: 0.6;
+			transition: 0.3s;
+		}
+		.container:hover{
+			cursor: pointer;
+			opacity: 1.0;
+		}
+		.container span{
+			font-weight: bold;
+			font-size: 16px;
+			font-style: italic;
+		}
+		.container img{
+			float: right;
+			margin-right: 20px;
+			display: none;
+		}
+
+		#contCreate2{
+			padding-top: 10px;
+			display: none;
+		}
+
+		button{
+			padding:5px;
+			background-color: transparent;
+			border: 1px solid black;
+			border-radius: 3px;
+			transition: 0.4s;
+			width: 70px;
+		}
+		button:hover{
+			background-color: black;
+			color: white;
+			cursor: pointer;
+		}
+
+		/*For scrollbar*/
+		/* width */
+		::-webkit-scrollbar {
+		  width: 5px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+		  background: #f1f1f1;
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+		  background: #888;
+		  border-radius: 10px;
+		  height: 50px;
+		  display: none;
+		}
+	
+		#footer{
+			text-align: center;
+			padding-top: 0px;
+			border-top: 1px solid black;
+		}	
+		#footer a{
+			font-size: 16px; 
+			font-weight: bold; 
+			padding: 10px;
+		}
+		#footer a:hover{
+			cursor: pointer;
+			text-decoration: none;
+		}
+		li{
+			float: left;
+		}
+		.footerObj{
+			width: 100%;
+			padding:10px;
+			margin-left: -5px;
+			font-weight: 900;
+			transition: 0.5s;
+		}
+		.footerObj:nth-child(1):hover{
+			background-color: #c95f5f;
+			cursor: pointer;
+		}
+		.footerObj:nth-child(2):hover{
+			background-color: #6a9fc4;
+			cursor: pointer;
+		}
+		.footerObj:nth-child(3):hover{
+			background-color: #b8bf67;
+			cursor: pointer;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="header">
+		<h2><b>Youtube<span style="color: #c95f5f">C</span><span style="color: #5c6cc4">o</span><span style="color: #7fc45c">l</span><span style="color: #b65cc4">o</span></b><span style="color: #c28859">r</span></h2>
+	</div>
+
+	<div id="content">
+		<div id="themes">
+			<div class="container" id="contDefault" style="border-top: 1px solid #a6a6a6;">
+				<span>Default</span>
+				<img src="check.png" id="checkDefault">
+			</div>
+			<div class="container" id="contDark">
+				<span>Dark</span>
+				<img src="check.png" id="checkDark">
+			</div>
+		</div>
+		<div class="container" id="contCreate">
+			<span>Create Your Own</span>
+			<img src="add.png" id="addImg" style="display: inline; height: 18px; width: 18px;">
+		</div>
+		<div id="contCreate2" style="padding-top: 10px;">
+			<span>Background:</span><br>
+			<input type="text" name="colorBack1" id="colorBack1" value="#858585" class="chooseColor"><br><br>
+			<span>Sidebar/Header:</span><br>
+			<input type="text" name="colorBack2" id="colorBack2" value="#858585" class="chooseColor"><br><br>
+			<span>Text (main-text):</span><br>
+			<input type="text" name="colorText1" id="colorText1" value="#858585" class="chooseColor"><br><br>
+			<span>Text (sub-text):</span><br>
+			<input type="text" name="colorText2" id="colorText2" value="#858585" class="chooseColor"><br><br>
+			<span>Icons:</span><br>
+			<input type="text" name="colorsIcon" id="colorIcon" value="#858585" class="chooseColor"><br><br>
+			<span>Links:</span><br>
+			<input type="text" name="colorsLinks" id="colorLink" value="#858585" class="chooseColor"><br><br><br>
+
+			<span>Theme name:</span><br>
+			<input type="text" name="themeName" id="themeName"><br><br>
+
+			<div id="note" style="width: 100%; padding:10px; background-color: #e3bc49">
+				<b>IMPORTANT:<br> The current version of this extension only allows you to save one custom theme. Making a new theme will only replace the last theme you made. <br><br> (Future versions will include as many custom themes as you wish)</b>
+			</div><br><br>
+			
+			<button style="margin-left: 40%;" id="saveBtn">Save</button>
+		</div>
+	</div>
+	<div id="footer" style="margin-top: 30px;">
+		<div class="footerObj">
+			<a id="info">About</a>
+			<div id="infoContainer" style="display: none;">
+				<p>YoutubeColor allows you to customize the color scheme of six different elements found on any given youtube page. These elements include...</p>
+				<ul style="margin-left: auto; margin-right: auto; width: 40%">
+					<li>Header & Sidebar</li><br>
+					<li>Backgorund</li><br>
+					<li>Main text</li><br>
+					<li>Sub text</li><br>
+					<li>Icons</li><br>
+					<li>Links</li><br>
+				</ul>
+			</div>
+		</div>
+	
+		<div class="footerObj" >
+			<a>Rate or Review</a>
+		</div>
+		
+		<div class="footerObj" >
+			<a>Donate</a>
+		</div>
+	</div>
+
+
+</body>
+<script src="Cookies.js"></script>
+<script src="colorpicker.js"></script>
+<script src="ext.js"></script>
+</html>

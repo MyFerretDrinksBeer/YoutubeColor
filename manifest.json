@@ -1,0 +1,30 @@
+{
+	"manifest_version": 2,
+	"name": "ColorMeChrome",
+	"version": "1.0",
+
+
+	"content_scripts": [
+		{
+			"matches": [
+				"https://www.youtube.com/*"
+			],
+			"all_frames": true,
+
+			"js": ["Cookies.js", "jQ.js", "content.js"]
+		}
+	],
+
+	"browser_action": {
+        "default_popup": "popup.html"
+    },
+
+
+    "permissions": [
+    	"activeTab",
+    	"tabs"
+	]
+
+
+
+}
