@@ -11,6 +11,7 @@ If you want to actually use this extension you could either..
 
 
 ***DETAILS***
+
 Author:
 -Conner Allen
 
